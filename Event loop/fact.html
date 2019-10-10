@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Fact</title>
+    </head>
+    <body>
+        <p id="text"></p>
+
+        <script>
+            var result = '';
+            var time = performance.now();
+            for(i = 0; i <= 20; i++){
+                result = '<p>Result: ' + (performance.now() - time).toFixed(1) + '-' + i.toString() + '/' + fact(i).toString()+'</p>';  
+                document.getElementById('text').innerHTML += result;
+            }
+            document.getElementById('text').innerHTML += "Result time: " + (performance.now() - time);   
+            
+            function fact(i){
+                return (i != 1 && i > 0 && isNaN(i) == false) ? i*fact(i-1) : 1;
+            }
+        </script>
+    </body>
+</html>

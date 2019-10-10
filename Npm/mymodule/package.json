@@ -1,0 +1,18 @@
+{
+  "name": "kvo-send",
+  "version": "1.1.1",
+  "description": "send message ()\u001b[Dkvo00)",
+  "main": "index.js",
+  "keywords": "send name in email-message xramyxv@mail.ru",
+  "maintainers": [
+    {
+      "name": "kvo00",
+      "email": "xramyxv@mail.ru"
+    }
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "kvo00",
+  "license": "ISC"
+}

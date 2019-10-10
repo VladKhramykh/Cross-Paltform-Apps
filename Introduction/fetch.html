@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <p id='text'>Fetch example - </p>
+        <script>
+            setTimeout(fetchExample, 3000);
+
+            function fetchExample(){
+                fetch('http://localhost:3000/name')
+                    .then(  
+                        function(response) {  
+                            if (response.status !== 200) {  
+                                alert('Status Code: ' + response.status);  
+                                return;  
+                            }
+                            response.text().then(function(data) {
+                                setTimeout(4000);
+                                document.getElementById('text').textContent += data;  
+                            });  
+                        }  
+                    )  
+                    .catch(function(err) {  
+                        alert('Fetch Error :-S', err);  
+                    });
+            }
+        </script>
+    </body>
+</html>

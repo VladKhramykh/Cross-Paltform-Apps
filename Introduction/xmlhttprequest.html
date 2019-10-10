@@ -1,0 +1,33 @@
+<html>
+    <head></head>
+    <body>
+        <p id='text'>Example with xhr - </p>
+        <script>
+            var xhr = new XMLHttpRequest(); 
+            let secondUrl = 'http://localhost:3000/name';
+            var name = '';           
+            
+            xhr.open('GET', secondUrl, true);           
+            xhr.send(null);           
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) { 
+                    document.getElementById('text').textContent += (readBody(xhr));
+                }
+            }
+
+            function readBody(xhr) {
+                var data;
+                if (!xhr.responseType || xhr.responseType === "text") {
+                    data = xhr.responseText;
+                } else if (xhr.responseType === "document") {
+                    data = xhr.responseXML;
+                } else {
+                    data = xhr.response;
+                }
+                return data;
+            }
+
+        </script>
+    </body>
+</html>

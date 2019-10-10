@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4 lab</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="ajax.js"></script>
+    </head>
+    <body>
+        <div style= "padding: 20px;" id="get_result"></div>
+        <button onclick="Get()">Show All</button>
+        <br>
+        <div style="padding: 20px">
+            <br/>
+            <div class="row">
+                <label class="col-2">ID</label>
+                <input type="number" class="col-3" id ="Id" min="0"/>
+            </div>
+            <br/>
+            <div class="row">
+                    <label class="col-2">Name</label>
+                    <input type="text" class="col-3" id ="Name"/>
+            </div>
+            <br/>
+            <div class="row">
+                    <label class="col-2">Birth Day</label>
+                    <input type="date" class="col-3" id ="BDay"/>
+            </div>
+            <br/>
+            <div class="row">
+                <button class="col-2" onclick="Post()">Add new user</button>
+            </div>
+            <br/>
+            <div class="row">
+                    <button class="col-2" onclick="Delete()">Delete by ID</button>
+            </div>
+            <br/>
+            <div class="row">
+                    <button class="col-2" onclick="Put()">Change by ID</button>
+            </div>
+            <div class="row">
+                <button class="col-2" onclick="Commit()">Change by ID</button>
+            </div>
+        </div>
+
+
+        <script>
+            Get();  
+            function Post(){
+                fetch("http://localhost:3000/api/db",{
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {"Content-Type": "application/json", "Accept": "application/json"},
+                    body: JSON.stringify({
+                        id : Id.value, 
+                        name: Name.value, 
+                        bday: BDay.value})
+                })
+                .then (response => {return response.json();});
+            }
+
+            function Get(){
+                fetch("http://localhost:3000/api/db",{
+                    method: "GET", 
+                    mode:"no-cors",
+                    headers: {"Content-Type": "application/json", "Accept": "application/json"}
+                })
+                .then(response => { return response.json();})
+                .then((pdata)=>{
+                    get_result.innerHTML = "";
+                    pdata.forEach(element => { 
+                        get_result.innerHTML += (element.id + ". " + element.name+ " - " + element.bday + "<br/>");
+                    });
+                })
+            }
+
+            function Delete(){
+                fetch("http://localhost:3000/api/db",{
+                    method: "DELETE",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        id : Id.value, 
+                        name: Name.value, 
+                        bday: BDay.value})
+                })
+                .then (response => response.json())
+            }
+
+            function Put(){
+                fetch("http://localhost:3000/api/db",{
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        id : Id.value, 
+                        name: Name.value, 
+                        bday: BDay.value})
+                })
+                .then (response => response.json())
+            }
+
+        </script>
+    </body>
+</html>
