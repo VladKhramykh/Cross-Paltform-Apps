@@ -54,7 +54,7 @@ db.on("COMMIT", () => {
 let server = http.createServer(function(request, response){
 
    if(url.parse(request.url).pathname === "/"){
-       let html = fs.readFileSync("./index.html");
+       let html = fs.readFileSync("index.html");
        response.writeHead(200, {"Content-Type" : "text/html; charset=utf-8"});
        response.end(html);
    } else if(url.parse(request.url).pathname === "/api/db"){

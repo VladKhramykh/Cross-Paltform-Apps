@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form action="http://localhost:3000/formparameter" method="post">
+    <input type="text" name="name" placeholder="Name" />
+    <input type="number" name="age" placeholder="Age" />
+    <input type="date" name="date" placeholder="Date" />
+    <div>
+        <input type="radio" name="course" value="1" >1
+        <input type="radio" name="course" value="2" >2
+        <input type="radio" name="course" value="3" >3
+        <input type="radio" name="course" value="4" >4
+    </div>
+    <label>About yourself</label>
+    <textarea name="about"></textarea>
+
+    <br><br>
+    <input type="submit" name="subButt" value="first">
+    <input type="submit" name="subButt" value="second">
+</form>
+</body>
+</html>

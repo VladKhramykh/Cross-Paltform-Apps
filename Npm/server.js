@@ -40,6 +40,7 @@ let http_handler = (req,resp)=>{
       let param = parse(body);
       
       //mailOptions.from = param.from,
+      
       mailOptions.to = param.to,
       mailOptions.subject = param.subject,
       mailOptions.html = param.message

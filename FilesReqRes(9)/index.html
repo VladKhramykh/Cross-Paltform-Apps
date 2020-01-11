@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+task 2
+<form action="http://localhost:3000/task2" method="get">
+    <label>
+        X = <input type="number" name="x">
+    </label>
+    <label>
+        Y = <input type="number" name="y">
+    </label>
+    <input type="submit" value="Task 2">
+</form><br/><br/>
+task 3
+<form method="post" action="/task3">
+    X = <input type="text" name="x">
+    Y = <input type="text" name="y">
+    S = <input type="text" name="s">
+    <input type="submit" value="Task 3" >
+</form>
+task 4
+<form method="post" action="/task4">
+    <textarea name="textJson">
+        {
+          "name": "websockets",
+          "version": "1.0.1",
+          "description": "lab9",
+          "main": "server.js",
+          "dependencies": {
+            "ws": "^7.2.0",
+            "xml2js": "^0.4.22",
+            "xmlbuilder": "^13.0.2"
+          },
+          "devDependencies": {},
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "start": "node server.js"
+          },
+          "author": "",
+          "license": "ISC"
+        }
+    </textarea>
+    <input type="submit" value="Task 4" >
+</form>
+Task 5
+<form method="post" action="/task5">
+    <input type="text" name = "xml" id="xml"/>
+    <input type="submit" value="Task 5">
+</form>
+<br/><br/>
+Task 6-8
+<form  action="/task6" method="post" enctype="multipart/form-data">
+    <input type="file" id="file" name="file">
+    <input type="submit" value="Task 6-8">
+</form><br/><br/>
+Task 9
+<form action="/task9" method="get">
+    Path (for example: 1572042852660-soikel.jpg): <input type="text" name="path">
+    <input type="submit" value="Task 9">
+</form>
+
+<script>
+
+
+
+    document.getElementById("xml").value += "<request id=\"30\">\n" +
+        "            <x value=\"1\"/>\n" +
+        "            <x value=\"1\"/>\n" +
+        "            <m value=\"a\"/>\n" +
+        "            <m value=\"b\"/>\n" +
+        "            <m value=\"c\"/>\n" +
+        "        </request>";
+
+
+</script>
+</body>
+</html>

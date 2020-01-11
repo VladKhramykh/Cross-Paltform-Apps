@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Start server</h1><br/>
+<button onclick="start()">Start</button>
+<script>
+    let socket = new WebSocket("ws:/localhost:4000/");
+
+    function start() {
+        let k = 1;
+        let interval = setInterval(()=>{
+            socket.send("lab 10 - "+k);
+            k++;
+        }, 3000);
+        setTimeout(() => {
+            clearInterval(interval);
+            console.log("interval ended");
+            socket.close();
+        } , 25000);
+
+    }
+
+    socket.onmessage = function (event) {
+        let message = event.data;
+        alert(message);
+    }
+</script>
+</body>
+</html>
